@@ -1,4 +1,4 @@
-# rocketengsim
+# Proton
 
 ## Project setup
 ```
