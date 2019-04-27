@@ -1,7 +1,7 @@
 # Proton
 It is a rocket engine simulator built using Vuejs and Golang. 
 
-####Currently the simulator calculates the different parameters of a rocket engine.
+###Currently the simulator calculates the different parameters of a rocket engine.
 
 The list of inputs to be provided are:
 * Specific Heat Ratio
