@@ -128,7 +128,7 @@ import VeeValidate from 'vee-validate'
 Vue.use(VeeValidate)
 
 export default {
-  name: 'HelloWorld',
+  name: 'Simulator',
 
   data: function() {
     return {
