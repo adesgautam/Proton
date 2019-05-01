@@ -4,7 +4,7 @@
     
     <div class="column is-two-thirds">
     <section class="section">
-      <h1 class="title">Rocket Engine Simulator</h1>
+      <h1 class="title">Rocket Engine Designer</h1>
       <hr>
 
       
@@ -16,6 +16,21 @@
 
           <b-col cols="4">
             <img alt="Engine" src="../assets/engine.png"  width="490">
+
+            <!-- <template>
+			  <v-stage :config="configKonva">
+			    <v-layer>
+			      <v-ellipse :config="ell1"></v-ellipse>
+			      <v-ellipse :config="ell2"></v-ellipse>
+			      <v-ellipse :config="ell3"></v-ellipse>
+			      <v-ellipse :config="ell4"></v-ellipse>
+			      <v-line :config="l1"></v-line>
+			      <v-line :config="l2"></v-line>
+			      <v-line :config="l3"></v-line>
+			    </v-layer>
+			  </v-stage>
+			</template> -->
+
           </b-col>  
           
           <b-col cols="4">
@@ -25,58 +40,57 @@
                 <label class="label">𝛄, Specific Heat Ratio (Default - 1.2)</label>
                 <b-form-input name="gamma" v-model="gamma" v-validate="'required|digits'" class="input" type="text"></b-form-input>
               </div>
-
-              <div class="field">
-                <label class="label">Tc, Combustion chamber temp. (Default - 3500 ℃)</label>
+              <div class="field" style="margin-top:13px;">
+                <label class="label">T<sub>c</sub>, Combustion chamber temp. (Default - 3500 ℃)</label>
                 <b-form-input name="tc" v-model="tc" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
+              <div class="field" style="margin-top:13px;">
                 <label class="label">M, Mach number (Default - 12)</label>
                 <b-form-input name="m" v-model="m" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
-                <label class="label">Pc, Combustion chamber pressure (Default - 20 MPa)</label>
+              <div class="field" style="margin-top:13px;">
+                <label class="label">P<sub>c</sub>, Combustion chamber pressure (Default - 20 MPa)</label>
                 <b-form-input name="pc" v-model="pc" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
-                <label class="label">Pe, Exit Pressure (Default - 101 KPa)</label>
+              <div class="field" style="margin-top:13px;">
+                <label class="label">P<sub>e</sub>, Exit Pressure (Default - 101 KPa)</label>
                 <b-form-input name="pe" v-model="pe" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
+              <div class="field" style="margin-top:13px;">
                 <label class="label">ε, Expansion Ratio (Default - 77.5)</label>
                 <b-form-input name="epsilon" v-model="epsilon" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
-                <label class="label">Isp, Specific Impulse (Default - 400 sec)</label>
+              <div class="field" style="margin-top:13px;">
+                <label class="label">I<sub>sp</sub>, Specific Impulse (Default - 400 sec)</label>
                 <b-form-input name="isp" v-model="isp" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
-                <label class="label">Fth, Thrust Force (Default - 1.5*1000000 (1.5 MN))</label>
+              <div class="field" style="margin-top:13px;">
+                <label class="label">F<sub>th</sub>, Thrust Force (Default - 1.5*1000000 (1.5 MN))</label>
                 <b-form-input name="fth" v-model="fth" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
+              <div class="field" style="margin-top:13px;">
                 <label class="label">𝛉 - Theta, Nozzle divergence half-angle (Default - 15 degree)</label>
                 <b-form-input name="theta" v-model="theta" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
+              <div class="field" style="margin-top:13px;">
                 <label class="label">β - Beta, Nozzle convergence half-angle (Default - 60 degree)</label>
                 <b-form-input name="beta" v-model="beta" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
+              <div class="field" style="margin-top:13px;">
                 <label class="label">𝐠, Acceleration due to gravity (Default - 9.8 m/s)</label>
                 <b-form-input name="g" v-model="g" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
 
-              <div class="field">
+              <div class="field" style="margin-top:13px;">
                 <label class="label">σ<sub>c</sub>, Stress on combustion chamber wall (Default - 55 MPa)</label>
                 <b-form-input name="sigmac" v-model="sigmac" class="input" v-validate="'required|digits'" type="text"></b-form-input>
               </div>
@@ -90,15 +104,15 @@
           <b-col cols="4">
             <div style="text-align: left;">
             <div><label class="label">Ve (Exhaust velocity) = {{ ve }}</label></div>
-            <div><label class="label">Md (Mass flow rate) = {{ md }}</label></div>
-            <div><label class="label">At (Throat area) = {{ at }}</label></div>
-            <div><label class="label">Rt (Throat radius) = {{ rt }}</label></div>
-            <div><label class="label">Ldn (Length of diverging cone) = {{ ldn }}</label></div>
-            <div><label class="label">Ac (Area of the inlet at combustion chamber) = {{ ac }}</label></div>
-            <div><label class="label">Rc (Radius of the inlet at combustion chamber) = {{ rc }}</label></div>
-            <div><label class="label">Lcn (Length of the converging nozzle)</label> = {{ lcn }}</div>
-            <div><label class="label">Lc (Length of combustion chamber) = {{ lc }}</label></div>
-            <div><label class="label">Twall (Min. thickness of combustion chamber wall) = {{ twall }}</label></div>
+            <div style="margin-top:2px;"><label class="label">M<sub>d</sub> (Mass flow rate) = {{ md }}</label></div>
+            <div style="margin-top:2px;"><label class="label">A<sub>t</sub> (Throat area) = {{ at }}</label></div>
+            <div style="margin-top:2px;"><label class="label">R<sub>t</sub> (Throat radius) = {{ rt }}</label></div>
+            <div style="margin-top:2px;"><label class="label">L<sub>dn</sub> (Length of diverging cone) = {{ ldn }}</label></div>
+            <div style="margin-top:2px;"><label class="label">A<sub>c</sub> (Area of the inlet at combustion chamber) = {{ ac }}</label></div>
+            <div style="margin-top:2px;"><label class="label">R<sub>c</sub> (Radius of the inlet at combustion chamber) = {{ rc }}</label></div>
+            <div style="margin-top:2px;"><label class="label">L<sub>cn</sub> (Length of the converging nozzle)</label> = {{ lcn }}</div>
+            <div style="margin-top:2px;"><label class="label">L<sub>c</sub> (Length of combustion chamber) = {{ lc }}</label></div>
+            <div style="margin-top:2px;"><label class="label">T<sub>wall</sub> (Min. thickness of combustion chamber wall) = {{ twall }}</label></div>
             </div>
           </b-col>
             
@@ -124,8 +138,12 @@
 import axios from 'axios';
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
+// import VueKonva from 'vue-konva'
+
+
 /* eslint-disable */
 Vue.use(VeeValidate)
+// Vue.use(VueKonva)
 
 export default {
   name: 'Simulator',
@@ -202,3 +220,23 @@ a {
   color: #42b983;
 }
 </style>
+
+
+<!-- Config values for Kovasjs -->
+<!-- configKonva: { width: 500, height: 500 },
+      
+      ell1: { x: 50, y: 100, radius :{ x : 15, y : 40 },
+        stroke: "black", strokeWidth: 1 },
+
+      ell2: { x: 120, y: 100, radius :{ x : 15, y : 40 },
+        fill:"#dbdbdb", stroke: "black", strokeWidth:1 },
+
+      ell3: { x: 166, y: 100, radius :{ x : 5, y : 13 },
+        fill:"#dbdbdb", stroke: "black", strokeWidth:1 },
+
+      ell4: { x: 380, y: 100, radius :{ x : 15, y : 80 },
+         fill:"#dbdbdb", stroke:"black", strokeWidth:1 },
+
+      l1: { points: [50, 60, 120, 60, 166, 87, 380, 19 ], stroke: 'black', strokeWidth:1},
+      l2: { points: [50, 140, 120, 140, 166, 112, 380, 181], stroke: 'black', strokeWidth:1},
+      l3: { points: [0, 100, 430, 100], stroke: 'black', strokeWidth:1, dash: [5, 5]} -->

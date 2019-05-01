@@ -11,8 +11,10 @@
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.18",
     "core-js": "^2.6.5",
+    "konva": "^3.2.5",
     "vee-validate": "^2.2.3",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-konva": "^2.0.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.6.0",
